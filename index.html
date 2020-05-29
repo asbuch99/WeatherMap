@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>WeatherMap</title>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      crossorigin="anonymous">
+    </script>
+    <style>
+     
+     .inline-block-child {
+  display: inline-block;
+    padding: 50px;
+      text-align: center;
+
+}
+
+      #map {
+        height: 80%;
+      }
+
+      #weather {
+        height: 10%;
+      }
+   
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      #right-panel {
+        height: 100%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+      #map {
+        margin-right: 400px;
+      }
+      #floating-panel {
+        background: #fff;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Arial;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        display: none;
+      }
+      #floating-panel2 {
+        position: absolute;
+        top: 10px;
+        left: 23%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      @media print {
+        #map {
+          height: 500px;
+          margin: 0;
+        }
+        #right-panel {
+          float: none;
+          width: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="input">
+      <input type="submit" value="Submit" class="submit">
+    </div>
+    <div id="floating-panel">
+      <strong>Start:</strong>
+      <select id="start">
+        <option value="boston">Boston</option>
+        <option value="new york">NYC</option>
+        <option value="chicago">Chicago</option>
+        <option value="st. louis">St. Louis</option>
+        <option value="los angeles">Los Angeles</option>
+      </select>
+      <br>
+      <strong>End:</strong>
+      <select id="end">
+        <option value="boston">Boston</option>
+        <option value="new york">NYC</option>
+        <option value="chicago">Chicago</option>
+        <option value="st. louis">St. Louis</option>
+        <option value="los angeles">Los Angeles</option>
+      </select>
+    </div>
+    <div id="floating-panel2">
+    <b>Mode of Travel: </b>
+    <select id="mode">
+      <option value="DRIVING">Driving</option>
+      <option value="WALKING">Walking</option>
+      <option value="BICYCLING">Bicycling</option>
+      <option value="TRANSIT">Transit</option>
+    </select>
+    </div>
+    <div id="right-panel"></div>
+
+
+ <div id="map"></div> 
+     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEFw86BCS5cfK_emnjwoGOSPrLboh_1nk&callback=initMap">
+    </script>
+
+<div class='parent'>
+  <div class='child inline-block-child'>
+    <h1 class="name" id="name"></h1>
+      <p class="temp"></p>
+      <p class="clouds"></p>
+      <p class="desc"></p></div>
+
+
+  <div class='child inline-block-child'>
+    <h1 class="name2" id="name2"></h1>
+      <p class="temp2"></p>
+      <p class="clouds2"></p>
+      <p class="desc2"></p></div>
+</div>
+
+      <script src="weather2.js"></script>
+    
+  </body>
+</html>
